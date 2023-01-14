@@ -23,6 +23,7 @@ $g++ -fopenmp -o BoolAPCore BoolAPCore.cpp
 
   A meta-path consists of edge types, in which the negative numbers denote reverse edge types. The first line of the file is the length of the meta-path.
 * file path
+
   File paths can be changed at the begining of the source code
 
   ```
