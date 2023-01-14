@@ -1,0 +1,12 @@
+node：
+user 0-942
+age 943-950
+occupation 951-971
+genre 972-989
+movie 990-2671
+
+edge:
+user->movie type=1
+user->age type=2
+user->occupation type=3
+movie->genre type=4
