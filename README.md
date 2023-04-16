@@ -9,9 +9,10 @@ Parallel (k,P)-core decomposition algorithms over large HINs
 ## Compiling the program
 
 ```
+$g++ -fopenmp -o HomBCore HomBCore.cpp
 $g++ -fopenmp -o BasicAPCore_FastAPCore BasicAPCore_FastAPCore.cpp
-$g++ -fopenmp -o BasicAPCore_FastAPCore_for_KGs BasicAPCore_FastAPCore_for_KGs.cpp
-$g++ -fopenmp -o BoolAPCore BoolAPCore.cpp
+$g++ -fopenmp -o BoolAPCoreS BoolAPCoreS.cpp
+$g++ -fopenmp -o BoolAPCoreD BoolAPCoreD.cpp
 ```
 
 ## Input format
@@ -22,6 +23,11 @@ $g++ -fopenmp -o BoolAPCore BoolAPCore.cpp
 * meta-path file
 
   A meta-path consists of edge types, in which the negative numbers denote reverse edge types. The first line of the file is the length of the meta-path.
+  For HomBCore, the first line of the file should contain 2 integers: length of the meta-path and type of the first vertex in meta-path.  
+* vertices file
+
+  Record the vertex type of each vertex, in which the i-th line record the vertex type of the i-th vertex.
+  Nessesary for HomBCore, other algorithms only need HIN file and meta-path file.
 * file path
 
   File paths can be changed at the begining of the source code
