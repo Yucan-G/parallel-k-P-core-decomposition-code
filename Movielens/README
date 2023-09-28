@@ -1,9 +1,9 @@
 vertices:
-user 0-942          type=0
-age 943-950         type=1
-occupation 951-971  type=2
-genre 972-989       type=3
-movie 990-2671      type=4
+user               type=0
+age                type=1
+occupation         type=2
+genre              type=3
+movie              type=4
 
 edges:
 user->movie         type=1
