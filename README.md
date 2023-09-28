@@ -3,16 +3,14 @@
 Parallel (k,P)-core decomposition algorithms over large HINs
 
 * HomBCore.cpp: Including the source code of HomBCore.
-* BasicAPCore_FastAPCore.cpp: Including the source code of BasicAPCore, FastAPCore, and CSR sparse matrix-related functions.
-* BoolAPCoreS.cpp: Including the source code of BoolAPCore<sup>S</sup> and CSR sparse boolean matrix-related functions.
-* BoolAPCoreD.cpp: Including the source code of BoolAPCore<sup>D</sup> and DP-SpM-related functions.
+* BoolAPCoreG.cpp: Including the source code of BoolAPCore<sup>G</sup> and DP-SpGEM-related functions.
+* BoolAPCoreD.cpp: Including the source code of BoolAPCore<sup>D</sup> and DP-SpLDM-related functions.
 
 ## Compiling the program
 
 ```
 $g++ -fopenmp -o HomBCore HomBCore.cpp
-$g++ -fopenmp -o BasicAPCore_FastAPCore BasicAPCore_FastAPCore.cpp
-$g++ -fopenmp -o BoolAPCoreS BoolAPCoreS.cpp
+$g++ -fopenmp -o BoolAPCoreG BoolAPCoreG.cpp
 $g++ -fopenmp -o BoolAPCoreD BoolAPCoreD.cpp
 ```
 
@@ -20,21 +18,24 @@ $g++ -fopenmp -o BoolAPCoreD BoolAPCoreD.cpp
 
 * HIN file
 
-  An HIN with vertex start from 0, and edge type start form 1. The first line of the file should contain 3 integers: number of vertices, number of edges, and number of edge types.
+  An HIN with vertex start from 0, and edge type start from 1. The first line of the file should contain 3 integers: the number of vertices, the number of edges, and the number of edge types.
 * meta-path file
 
   - A meta-path consists of edge types, in which the negative numbers denote reverse edge types. The first line of the file is the length of the meta-path.
-  - For HomBCore, the first line of the file should contain 2 integers: length of the meta-path and type of the first vertex in meta-path.  
+  - For HomBCore, the first line of the file should contain 2 integers: the length of the meta-path and the type of the first vertex in the meta-path.  
 * vertices file
 
-  - Record the vertex type of each vertex, in which the *i*-th line record the vertex type of the *i*-th vertex.
-  - Nessesary for HomBCore, other algorithms only need HIN file and meta-path file.
-* file path
+  - Record the vertex type of each vertex, in which the *i*-th line records the vertex type of the *i*-th vertex.
+  - Necessary for HomBCore, other algorithms only need the HIN and meta-path files.
 
-  File paths can be changed at the begining of the source code.
+## Running the program
+```
+$./HomBCore [HIN file path] [vertices file path] [meta-path file path]
+e.g. $./HomBCore Movielens/graph_Movielens.txt Movielens/vertices_Movielens.txt Movielens/metapath_HomBCore.txt
 
-  ```
-  /*path of input files*/
-  char* HIN_PATH = (char*)"Movielens/graph_Movielens.txt";
-  char* METAPATH_PATH = (char*)"Movielens/metapath.txt";
-  ```
+$./BoolAPCoreG [HIN file path] [meta-path file path]
+e.g. $./BoolAPCoreG Movielens/graph_Movielens.txt Movielens/metapath.txt
+
+$./BoolAPCoreD [HIN file path] [meta-path file path]
+e.g. $./BoolAPCoreD Movielens/graph_Movielens.txt Movielens/metapath.txt
+```
