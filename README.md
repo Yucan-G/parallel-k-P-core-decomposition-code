@@ -1,6 +1,7 @@
-# Parallel (k, P)-core decomposition
+# Efficient Core Decomposition over Large Heterogeneous Information Networks
 
-Parallel (k,P)-core decomposition algorithms over large HINs
+This is the official code release of the following paper:
+Yucan Guo, Chenhao Ma, and Yixiang Fang. Efficient Core Decomposition over Large Heterogeneous Information Networks. ICDE 2024.
 
 * HomBCore.cpp: Including the source code of HomBCore.
 * BoolAPCoreG.cpp: Including the source code of BoolAPCore<sup>G</sup> and DP-SpGEM-related functions.
